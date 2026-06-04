@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crenet - Advanced Kidney & Immunity Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="brand-logo">
+            <img src="assets/steris-logo.jpg" alt="Steris Pharmaceuticals" class="steris-img">
+            <span class="brand-name">Steris Pharmaceuticals</span>
+        </div>
+        <div class="nav-links">
+            <a href="#benefits">Benefits</a>
+            <a href="#supplement-facts">Ingredients</a>
+            <a href="https://wa.me/+923149469682" class="btn btn-outline">Buy Now</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1 class="hero-title">CRENET<br><span class="gradient-text">EFFERVISENT TABLETS</span></h1>
+                <p class="hero-subtitle">Advanced Cranberry & Blueberry extract for optimal kidney health, UTI
+                    prevention, and immune support.</p>
+                <div class="cta-group">
+                    <a href="#benefits" class="btn btn-primary">Explore Benefits</a>
+                    <a href="#supplement-facts" class="btn btn-secondary">Supplement Facts</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div id="spline-loader" class="spinner"></div>
+                <canvas id="spline-hero-canvas"></canvas>
+            </div>
+        </section>
+
+        <section class="benefits" id="benefits">
+            <h2 class="section-title">Comprehensive <span class="gradient-text">Protection</span></h2>
+            <div class="benefits-grid">
+                <div class="benefit-card glass">
+                    <div class="card-icon">
+                        <img src="assets/kidney.png" alt="Kidney Health">
+                    </div>
+                    <h3>Kidney Health</h3>
+                    <p>Helps prevent kidney diseases and kidney stones. Rich in antioxidants to reduce inflammation.</p>
+                </div>
+                <div class="benefit-card glass">
+                    <div class="card-icon">
+                        <img src="assets/brain.png" alt="Brain Function">
+                    </div>
+                    <h3>Boost Brain</h3>
+                    <p>Powerful blueberry extract supports cognitive function, memory, and overall brain health.</p>
+                </div>
+                <div class="benefit-card glass">
+                    <div class="card-icon">
+                        <img src="assets/berries.png" alt="Immunity">
+                    </div>
+                    <h3>Prevent UTI</h3>
+                    <p>Clinically proven cranberry extract helps prevent Urinary Tract Infections and boosts immunity.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="supplement-facts" id="supplement-facts">
+            <img src="assets/bottle.png" alt="Crenet Bottle Left" class="floating-bottle bottle-left">
+            <img src="assets/bottle.png" alt="Crenet Bottle Right" class="floating-bottle bottle-right">
+            <div class="facts-container glass">
+                <h2>Supplement Facts</h2>
+                <div class="facts-grid">
+                    <div class="fact-item">
+                        <span class="fact-label">Cranberry Extract (MS)</span>
+                        <span class="fact-value">250mg</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-label">Blueberry Extract (MS)</span>
+                        <span class="fact-value">250mg</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-label">Form</span>
+                        <span class="fact-value">10 Effervescent Tablets</span>
+                    </div>
+                </div>
+                <p class="directions"><strong>Directions:</strong> Adults and children over 12 years: Dissolve one
+                    tablet in a 200ml glass of water daily.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="scene.js"></script>
+    <script src="main.js"></script>
+
+    <!-- Spline 3D Integration -->
+    <script type="module">
+        import { Application } from 'https://esm.sh/@splinetool/runtime';
+
+        const canvas = document.getElementById('spline-hero-canvas');
+        const loader = document.getElementById('spline-loader');
+        const spline = new Application(canvas);
+
+        spline.load('https://prod.spline.design/YzLWJCzJbnytjA3C/scene.splinecode')
+            .then(() => {
+                console.log('Spline scene loaded!');
+                loader.style.display = 'none'; // Hide loader
+                canvas.style.opacity = 1;      // Reveal canvas
+            });
+    </script>
+</body>
+
+</html>
